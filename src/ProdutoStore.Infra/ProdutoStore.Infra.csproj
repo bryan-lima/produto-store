@@ -54,11 +54,11 @@
     <Compile Include="Data\Context\ProdutoStoreContext.cs" />
     <Compile Include="Data\Mappings\CategoriaProdutoMap.cs" />
     <Compile Include="Data\Mappings\ProdutoMap.cs" />
-    <Compile Include="Migrations\202209220202110_InitialProdutoStore.cs" />
-    <Compile Include="Migrations\202209220202110_InitialProdutoStore.designer.cs">
+    <Compile Include="Data\Migrations\202209220202110_InitialProdutoStore.cs" />
+    <Compile Include="Data\Migrations\202209220202110_InitialProdutoStore.designer.cs">
       <DependentUpon>202209220202110_InitialProdutoStore.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Data\Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -75,7 +75,7 @@
     <Folder Include="Data\Repository\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202209220202110_InitialProdutoStore.resx">
+    <EmbeddedResource Include="Data\Migrations\202209220202110_InitialProdutoStore.resx">
       <DependentUpon>202209220202110_InitialProdutoStore.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
