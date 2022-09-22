@@ -87,14 +87,22 @@ namespace ProdutoStore.AppMvc.Controllers
         }
 
         [HttpPost]
-        [Route("atualizar")]
+        [Route("atualizar/{id:int}")]
         //[ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(ProdutoExibicaoViewModel produtoExibicaoViewModel)
+        public async Task<ActionResult> Edit(int id, ProdutoExibicaoViewModel produtoExibicaoViewModel)
         {
             if (!ModelState.IsValid)
                 return View(produtoExibicaoViewModel);
 
+            Produto _produto = await _produtoRepository.ObterPorId(id);
+
+            if (_produto == null)
+                return HttpNotFound();
+
             await _produtoService.Atualizar(_mapper.Map<Produto>(produtoExibicaoViewModel.ProdutoViewModel));
+
+            if (!OperacaoValida())
+                return View("Index", produtoExibicaoViewModel);
 
             return RedirectToAction("Index");
         }

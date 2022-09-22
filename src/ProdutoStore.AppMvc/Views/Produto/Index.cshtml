@@ -57,7 +57,7 @@
                     @(item.Perecivel ? "Sim" : "Não")
                 </td>
                 <td>
-                    <input type="submit" value="Atualizar" class="btn btn-success" />
+                    <input type="button" value="Atualizar" class="btn btn-success" onclick="atualizarProduto(@item.Id, 'modelAqui')" />
                     @*@Html.ActionLink("Atualizar", "Edit", new { id = item.Id }, new { @class = "btn btn-success" }) &nbsp;*@
                     @Html.ActionLink("Deletar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
                 </td>
