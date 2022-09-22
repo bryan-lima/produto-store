@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProdutoStore.AppMvc", "src\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProdutoStore.Business", "src\ProdutoStore.Business\ProdutoStore.Business.csproj", "{BFE2D4D8-C50D-444D-BFAD-33B0C7C1187B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProdutoStore.Infra", "src\ProdutoStore.Infra\ProdutoStore.Infra.csproj", "{49F5F524-A260-46D8-8DA3-DA9C4CE413BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BFE2D4D8-C50D-444D-BFAD-33B0C7C1187B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFE2D4D8-C50D-444D-BFAD-33B0C7C1187B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BFE2D4D8-C50D-444D-BFAD-33B0C7C1187B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49F5F524-A260-46D8-8DA3-DA9C4CE413BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49F5F524-A260-46D8-8DA3-DA9C4CE413BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49F5F524-A260-46D8-8DA3-DA9C4CE413BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49F5F524-A260-46D8-8DA3-DA9C4CE413BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
