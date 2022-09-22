@@ -6,7 +6,7 @@ namespace ProdutoStore.Infra.Data.Repositories
 {
     public class ProdutoRepository : Repository<Produto>, IProdutoRepository
     {
-        public ProdutoRepository(ProdutoStoreContext context) : base(context)
+        public ProdutoRepository(ProdutoStoreContext contexto) : base(contexto)
         {
 
         }

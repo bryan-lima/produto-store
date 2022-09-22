@@ -12,13 +12,13 @@ namespace ProdutoStore.Infra.Data.Repositories
 {
     public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : Entity, new()
     {
-        protected readonly ProdutoStoreContext Context;
+        protected readonly ProdutoStoreContext Contexto;
         protected readonly DbSet<TEntity> DbSet;
 
-        protected Repository(ProdutoStoreContext db)
+        protected Repository(ProdutoStoreContext contexto)
         {
-            Context = db;
-            DbSet = Context.Set<TEntity>();
+            Contexto = contexto;
+            DbSet = Contexto.Set<TEntity>();
         }
 
         public virtual async Task<TEntity> ObterPorId(int id)
@@ -31,37 +31,39 @@ namespace ProdutoStore.Infra.Data.Repositories
             return await DbSet.ToListAsync();
         }
 
-        public async Task<IEnumerable<TEntity>> Buscar(Expression<Func<TEntity, bool>> predicate)
+        public async Task<IEnumerable<TEntity>> Buscar(Expression<Func<TEntity, bool>> predicado)
         {
-            return await DbSet.AsNoTracking().Where(predicate).ToListAsync();
+            return await DbSet.AsNoTracking()
+                              .Where(predicado)
+                              .ToListAsync();
         }
 
-        public virtual async Task Adicionar(TEntity entity)
+        public virtual async Task Adicionar(TEntity entidade)
         {
-            DbSet.Add(entity);
+            DbSet.Add(entidade);
             await SaveChanges();
         }
 
-        public virtual async Task Atualizar(TEntity entity)
+        public virtual async Task Atualizar(TEntity entidade)
         {
-            Context.Entry(entity).State = EntityState.Modified;
+            Contexto.Entry(entidade).State = EntityState.Modified;
             await SaveChanges();
         }
 
         public virtual async Task Remover(int id)
         {
-            Context.Entry(new TEntity { Id = id }).State = EntityState.Deleted;
+            Contexto.Entry(new TEntity { Id = id }).State = EntityState.Deleted;
             await SaveChanges();
         }
 
         public async Task<int> SaveChanges()
         {
-            return await Context.SaveChangesAsync();
+            return await Contexto.SaveChangesAsync();
         }
 
         public void Dispose()
         {
-            Context?.Dispose();
+            Contexto?.Dispose();
         }
     }
 }

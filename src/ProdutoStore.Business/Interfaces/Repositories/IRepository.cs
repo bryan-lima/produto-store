@@ -8,12 +8,23 @@ namespace ProdutoStore.Business.Interfaces.Repositories
 {
     public interface IRepository<TEntity> : IDisposable where TEntity : Entity
     {
-        Task Adicionar(TEntity entity);
+        
+        #region Métodos Públicos
+
+        Task Adicionar(TEntity entidade);
+
         Task<TEntity> ObterPorId(int id);
+
         Task<List<TEntity>> ObterTodos();
-        Task Atualizar(TEntity entity);
+
+        Task Atualizar(TEntity entidade);
+
         Task Remover(int id);
-        Task<IEnumerable<TEntity>> Buscar(Expression<Func<TEntity, bool>> predicate);
+
+        Task<IEnumerable<TEntity>> Buscar(Expression<Func<TEntity, bool>> predicado);
+
         Task<int> SaveChanges();
+
+        #endregion Métodos Públicos
     }
 }
