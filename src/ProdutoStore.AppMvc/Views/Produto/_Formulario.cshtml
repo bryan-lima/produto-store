@@ -1,0 +1,58 @@
+﻿@model ProdutoStore.AppMvc.ViewModels.ProdutoExibicaoViewModel
+
+@using (Html.BeginForm("Cadastrar", "Produto", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.LabelFor(model => model.ProdutoViewModel.Nome, htmlAttributes: new { @class = "control-label col-md" })
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ProdutoViewModel.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ProdutoViewModel.Nome, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @Html.LabelFor(model => model.ProdutoViewModel.Descricao, htmlAttributes: new { @class = "control-label col-md" })
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ProdutoViewModel.Descricao, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ProdutoViewModel.Descricao, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @Html.LabelFor(model => model.ProdutoViewModel.CategoriaProduto, htmlAttributes: new { @class = "control-label col-md" })
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.ProdutoViewModel.CategoriaProdutoId,
+                                      new SelectList(Model.ProdutoViewModel.CategoriasProdutos, "Id", "Nome"),
+                                      string.Empty, 
+                                      new { @class = "form-control form-control-lg" })
+                @Html.ValidationMessageFor(model => model.ProdutoViewModel.CategoriaProdutoId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProdutoViewModel.Perecivel, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.ProdutoViewModel.Perecivel)
+                    @Html.ValidationMessageFor(model => model.ProdutoViewModel.Perecivel, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Cadastrar" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

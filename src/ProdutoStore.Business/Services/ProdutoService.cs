@@ -43,9 +43,9 @@ namespace ProdutoStore.Business.Services
             await _produtoRepository.Atualizar(produto);
         }
 
-        public async Task Remover(int id)
+        public async Task Remover(Produto produto)
         {
-            await _produtoRepository.Remover(id);
+            await _produtoRepository.Remover(produto);
         }
 
         public void Dispose()

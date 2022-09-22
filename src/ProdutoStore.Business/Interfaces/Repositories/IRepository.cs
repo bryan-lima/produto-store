@@ -19,7 +19,7 @@ namespace ProdutoStore.Business.Interfaces.Repositories
 
         Task Atualizar(TEntity entidade);
 
-        Task Remover(int id);
+        Task Remover(TEntity entidade, bool forcePhysicalDelete = false);
 
         Task<IEnumerable<TEntity>> Buscar(Expression<Func<TEntity, bool>> predicado);
 

@@ -12,7 +12,7 @@ namespace ProdutoStore.Business.Interfaces.Services
 
         Task Atualizar(Produto produto);
 
-        Task Remover(int id);
+        Task Remover(Produto produto);
 
         #endregion Métodos Públicos
     }

@@ -4,6 +4,7 @@ using ProdutoStore.Infra.Data.Context;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -50,9 +51,15 @@ namespace ProdutoStore.Infra.Data.Repositories
             await SaveChanges();
         }
 
-        public virtual async Task Remover(int id)
+        public virtual async Task Remover(TEntity entidade, bool forcePhysicalDelete = false)
         {
-            Contexto.Entry(new TEntity { Id = id }).State = EntityState.Deleted;
+            DbEntityEntry entry = Contexto.Entry(entidade);
+            entry.Property("Ativo").CurrentValue = false;
+
+            DbSet.Attach(entidade);
+
+            entry.State = EntityState.Modified;
+
             await SaveChanges();
         }
 

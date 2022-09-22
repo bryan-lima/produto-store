@@ -54,7 +54,7 @@ namespace ProdutoStore.Business.Services
                 return;
             }
 
-            await _categoriaProdutoRepository.Remover(id);
+            await _categoriaProdutoRepository.Remover(_categoriaProduto);
         }
 
         public void Dispose()

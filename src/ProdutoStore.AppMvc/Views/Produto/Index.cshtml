@@ -1,0 +1,73 @@
+﻿@model ProdutoStore.AppMvc.ViewModels.ProdutoExibicaoViewModel
+
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+@Html.Partial("_Formulario")
+
+@using (Html.BeginForm("Atualizar", "Produto", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <table class="table table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProdutoViewModel.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProdutoViewModel.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProdutoViewModel.Descricao)
+            </th>
+            <th>
+                Categoria do Produto
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProdutoViewModel.Ativo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProdutoViewModel.Perecivel)
+            </th>
+            <th>
+                Ação
+            </th>
+        </tr>
+
+        @foreach (var item in Model.Produtos)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoriaProduto.Nome)
+                </td>
+                <td>
+                    @(item.Ativo ? "Ativo" : "Inativo")
+                </td>
+                <td>
+                    @(item.Perecivel ? "Sim" : "Não")
+                </td>
+                <td>
+                    <input type="submit" value="Atualizar" class="btn btn-success" />
+                    @*@Html.ActionLink("Atualizar", "Edit", new { id = item.Id }, new { @class = "btn btn-success" }) &nbsp;*@
+                    @Html.ActionLink("Deletar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
