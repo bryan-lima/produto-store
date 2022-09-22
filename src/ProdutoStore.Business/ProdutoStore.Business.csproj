@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\Notificacoes\INotificador.cs" />
     <Compile Include="Interfaces\Repositories\ICategoriaProdutoRepository.cs" />
     <Compile Include="Interfaces\Repositories\IProdutoRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepository.cs" />
@@ -60,6 +61,8 @@
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\Validations\CategoriaProdutoValidation.cs" />
     <Compile Include="Models\Validations\ProdutoValidation.cs" />
+    <Compile Include="Notificacoes\Notificacao.cs" />
+    <Compile Include="Notificacoes\Notificador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\CategoriaProdutoService.cs" />
