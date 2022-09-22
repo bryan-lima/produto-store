@@ -59,6 +59,9 @@
       <DependentUpon>202209220202110_InitialProdutoStore.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\Migrations\Configuration.cs" />
+    <Compile Include="Data\Repositories\CategoriaProdutoRepository.cs" />
+    <Compile Include="Data\Repositories\ProdutoRepository.cs" />
+    <Compile Include="Data\Repositories\Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -71,9 +74,7 @@
       <Name>ProdutoStore.Business</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\Repository\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Data\Migrations\202209220202110_InitialProdutoStore.resx">
       <DependentUpon>202209220202110_InitialProdutoStore.cs</DependentUpon>
