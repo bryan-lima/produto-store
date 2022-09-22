@@ -53,16 +53,19 @@
     <Compile Include="Interfaces\Repositories\ICategoriaProdutoRepository.cs" />
     <Compile Include="Interfaces\Repositories\IProdutoRepository.cs" />
     <Compile Include="Interfaces\Repositories\IRepository.cs" />
+    <Compile Include="Interfaces\Services\ICategoriaProdutoService.cs" />
+    <Compile Include="Interfaces\Services\IProdutoService.cs" />
     <Compile Include="Models\CategoriaProduto.cs" />
     <Compile Include="Models\Entity.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\Validations\CategoriaProdutoValidation.cs" />
     <Compile Include="Models\Validations\ProdutoValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BaseService.cs" />
+    <Compile Include="Services\CategoriaProdutoService.cs" />
+    <Compile Include="Services\ProdutoService.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
