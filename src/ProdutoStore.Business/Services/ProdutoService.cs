@@ -1,4 +1,5 @@
-﻿using ProdutoStore.Business.Interfaces.Repositories;
+﻿using ProdutoStore.Business.Interfaces.Notificacoes;
+using ProdutoStore.Business.Interfaces.Repositories;
 using ProdutoStore.Business.Interfaces.Services;
 using ProdutoStore.Business.Models;
 using ProdutoStore.Business.Models.Validations;
@@ -16,7 +17,8 @@ namespace ProdutoStore.Business.Services
 
         #region Construtores Públicos
 
-        public ProdutoService(IProdutoRepository produtoRepository)
+        public ProdutoService(IProdutoRepository produtoRepository,
+                              INotificador notificador) : base(notificador)
         {
             _produtoRepository = produtoRepository;
         }

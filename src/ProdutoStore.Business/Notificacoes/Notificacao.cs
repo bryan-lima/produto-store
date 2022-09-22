@@ -7,6 +7,6 @@
             Mensagem = mensagem;
         }
 
-        public string Mensagem { get; set; }
+        public string Mensagem { get; }
     }
 }

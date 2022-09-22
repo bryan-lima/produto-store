@@ -1,4 +1,5 @@
-﻿using ProdutoStore.Business.Interfaces.Repositories;
+﻿using ProdutoStore.Business.Interfaces.Notificacoes;
+using ProdutoStore.Business.Interfaces.Repositories;
 using ProdutoStore.Business.Interfaces.Services;
 using ProdutoStore.Business.Models;
 using ProdutoStore.Business.Models.Validations;
@@ -17,7 +18,8 @@ namespace ProdutoStore.Business.Services
 
         #region Construtores Públicos
 
-        public CategoriaProdutoService(ICategoriaProdutoRepository categoriaProdutoRepository)
+        public CategoriaProdutoService(ICategoriaProdutoRepository categoriaProdutoRepository,
+                                       INotificador notificador) : base(notificador)
         {
             _categoriaProdutoRepository = categoriaProdutoRepository;
         }
@@ -47,7 +49,10 @@ namespace ProdutoStore.Business.Services
             CategoriaProduto _categoriaProduto = await _categoriaProdutoRepository.ObterCategoriaEProdutos(id);
 
             if (_categoriaProduto.Produtos.Any())
+            {
+                Notificar("A cateoria possui produtos associados!");
                 return;
+            }
 
             await _categoriaProdutoRepository.Remover(id);
         }
